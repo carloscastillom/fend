@@ -14,30 +14,41 @@
 
         <header>
             <div class="">
-                Logo
+               <h2>NLP for your text</h1> 
             </div>
             <div class="">
-                navigation
+                
             </div>
         </header>
 
         <main>
             <section>
                 <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="URL/Text to analyze">
+                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
-            </section>
+            <section>
 
             <section>
                 <strong>Form Results:</strong>
-                <div id="results"></div>
+                <div id="texts">Text: </div>
+                <div id="results">Subjectivity: </div>
             </section>
         </main>
 
         <footer>
             <p>This is a footer</p>
         </footer>
+
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
 
     </body>
 </html>
